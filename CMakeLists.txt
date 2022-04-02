@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ndt_localizer)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 find_package(catkin REQUIRED COMPONENTS
         roscpp
@@ -46,7 +46,10 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 ###########
 ## Build ##
 ###########
+# 编译ndt_omp
+add_subdirectory(ndt_omp)
 
+# ndt
 include_directories(include ${catkin_INCLUDE_DIRS})
 SET(CMAKE_CXX_FLAGS "-O2 -g -Wall ${CMAKE_CXX_FLAGS}")
 
